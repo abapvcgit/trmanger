@@ -1,0 +1,60 @@
+@Metadata.layer: #CORE
+@UI:{
+       headerInfo:{
+                typeName: 'Transport List',
+                typeNamePlural: 'Transports List',
+                title:{
+                        type: #STANDARD,
+                        label: 'Transport Id',
+                        value: 'Trkorr'
+                },
+                description:{
+                        type: #STANDARD,
+                        value: 'AS4text',
+                        label: 'Description'
+                }
+       }
+}
+annotate entity zcdscv_transport_list with
+{
+  @UI:{
+      lineItem: [{ position: 10 }],  //report position
+       selectionField: [{ position: 10 }]  // filter position
+      }
+  Trkorr;
+  @UI:{
+     lineItem: [{ position: 20 }]   //report position
+     }
+  AS4text;
+  @UI:{
+     lineItem: [{ position: 30 }] ,  //report position
+      selectionField: [{ position: 20 }] 
+     }
+  As4user;
+  @UI:{
+     lineItem: [{ position: 40 }]   //report position
+     }
+  Trfunction;
+  @UI:{
+     lineItem: [{ position: 50 }],   //report position
+      selectionField: [{ position: 30 }] 
+     }
+  TrStatus;
+  @UI:{
+     lineItem: [{ position: 60 }]   //report position
+     }
+  Tarsystem;
+  
+  @UI:{
+     lineItem: [{ position: 70 }]   //report position
+     }
+  As4date;
+  @UI:{
+     lineItem: [{ position: 80 }]   //report position
+     }
+  As4time;
+
+  /* Associations */
+
+
+}

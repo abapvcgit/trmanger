@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition Transport Manager'
+define service Zsd_tr_manager {
+  expose zcdscv_transport_list as Transport;
+  expose zcdscv_task_list as Task;
+}

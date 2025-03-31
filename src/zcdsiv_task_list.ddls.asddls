@@ -8,25 +8,22 @@
     dataClass: #MIXED
 }
 define view entity zcdsiv_task_list
-  as select from e071 as Task
-    inner join   e07t as TaskDesc on  Task.trkorr    = TaskDesc.trkorr
-                                  and TaskDesc.langu = $session.system_language
-  association to parent zcdsiv_transport_list as _Transport on $projection.Trkorr = _Transport.Trkorr
+  as select from e070
+    inner join   e07t on  e07t.trkorr = e070.trkorr
+                      and e07t.langu  = $session.system_language
+  association to parent zcdsiv_transport_list as _Transport on $projection.Strkorr = _Transport.Trkorr
 {
-  key Task.trkorr                     as Trkorr,
-  key Task.as4pos                     as As4pos,
-      Task.pgmid                      as Pgmid,
-//      Task.object                     as Object,
-      Task.obj_name                   as ObjName,
-      substring(Task.obj_name, 1, 10) as SubTask_Number,
-      Task.objfunc                    as Objfunc,
-      Task.lockflag                   as Lockflag,
-      Task.gennum                     as Gennum,
-      Task.lang                       as Lang,
-      Task.activity                   as Activity,
-      TaskDesc.as4text                as Description,
+  key e070.trkorr     as Trkorr,
+      e070.trfunction as Trfunction,
+      e070.trstatus   as Trstatus,
+      e070.tarsystem  as Tarsystem,
+      e070.korrdev    as Korrdev,
+      e070.as4user    as As4user,
+      e070.as4date    as As4date,
+      e070.as4time    as As4time,
+      e070.strkorr    as Strkorr,
+      e07t.as4text    as TaskDescription,
       _Transport
 }
 where
-      Task.pgmid  = 'CORR'
-  and Task.object = 'MERG'
+  e070.trfunction = 'S'

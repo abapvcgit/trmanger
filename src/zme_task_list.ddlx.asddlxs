@@ -1,0 +1,35 @@
+@Metadata.layer: #CORE
+@UI:{
+       headerInfo:{
+                typeName: 'Task',
+                typeNamePlural: 'Tasks',
+                title:{
+                        type: #STANDARD,
+                        label: 'Connections',
+                        value: 'Strkorr'
+                },
+                description:{
+                        type: #STANDARD,
+                        value: 'TaskDescription'
+                }
+
+       }
+}
+annotate entity zcdscv_task_list with
+{
+  @UI.lineItem: [ { position: 10 ,importance: #HIGH } ]
+  Trkorr;
+  //    Trfunction;
+  //    Trstatus;
+  //    Tarsystem;
+  //    Korrdev;
+  //    As4user;
+  //    As4date;
+  //    As4time;
+  //  Strkorr;
+  @UI.lineItem: [ { position: 20 ,importance: #HIGH } ]
+  TaskDescription;
+  /* Associations */
+
+
+}

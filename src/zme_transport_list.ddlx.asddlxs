@@ -17,44 +17,82 @@
 }
 annotate entity zcdscv_transport_list with
 {
+  //   beging facet
+  @UI.facet: [
+          {
+             id: 'tr_info',
+             purpose: #STANDARD,
+             position: 10,
+             label: 'Transport',
+             type: #COLLECTION
+           } ,
+            {
+               type: #FIELDGROUP_REFERENCE ,
+               label : 'Transport Information',
+               parentId: 'tr_info',
+               id: 'Information' ,
+               position: 10,
+               targetQualifier: 'information'
+               },
+               {
+                  purpose: #STANDARD,
+                  position: 20,
+                  importance: #HIGH,
+                  label: 'Task Details',
+                  type: #LINEITEM_REFERENCE,
+                  targetElement: '_Task'
+               }
+           ]
+  //  end facet
   @UI:{
       lineItem: [{ position: 10 }],  //report position
-       selectionField: [{ position: 10 }]  // filter position
+       selectionField: [{ position: 10 }],  // filter position
+       fieldGroup: [{ qualifier: 'information', position: 10 ,importance: #HIGH}] // identification group postion
       }
   Trkorr;
   @UI:{
-     lineItem: [{ position: 20 }]   //report position
+     lineItem: [{ position: 20 }],   //report position
+      fieldGroup: [{ qualifier: 'information', position: 20 ,importance: #HIGH}] // identification group postion
      }
   AS4text;
   @UI:{
      lineItem: [{ position: 30 }] ,  //report position
-      selectionField: [{ position: 20 }] 
+      selectionField: [{ position: 20 }],
+       fieldGroup: [{ qualifier: 'information', position: 30 ,importance: #HIGH}] // identification group postion
      }
   As4user;
   @UI:{
-     lineItem: [{ position: 40 }]   //report position
+     lineItem: [{ position: 40 }],   //report position
+      fieldGroup: [{ qualifier: 'information', position: 40 ,importance: #HIGH}] // identification group postion
      }
   Trfunction;
   @UI:{
      lineItem: [{ position: 50 }],   //report position
-      selectionField: [{ position: 30 }] 
+      selectionField: [{ position: 30 }],
+       fieldGroup: [{ qualifier: 'information', position: 50 ,importance: #HIGH}] // identification group postion
      }
   TrStatus;
   @UI:{
-     lineItem: [{ position: 60 }]   //report position
+     lineItem: [{ position: 60 }],   //report position
+      fieldGroup: [{ qualifier: 'information', position: 60 ,importance: #HIGH}] // identification group postion
      }
   Tarsystem;
-  
+
   @UI:{
-     lineItem: [{ position: 70 }]   //report position
+     lineItem: [{ position: 70 }] ,  //report position
+      fieldGroup: [{ qualifier: 'information', position: 70 ,importance: #HIGH}] // identification group postion
      }
   As4date;
   @UI:{
-     lineItem: [{ position: 80 }]   //report position
+     lineItem: [{ position: 80 }],   //report position
+      fieldGroup: [{ qualifier: 'information', position: 80 ,importance: #HIGH}] // identification group postion
      }
   As4time;
 
-  /* Associations */
-
+  /* hiiden */
+  @UI.hidden: true
+  TrStatusDesc;
+  @UI.hidden: true
+  TrTypeDesc;
 
 }

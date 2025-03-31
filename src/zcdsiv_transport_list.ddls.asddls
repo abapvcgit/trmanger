@@ -16,10 +16,10 @@ define root view entity zcdsiv_transport_list
       _TrType.TrTypeText as TrTypeDesc,
       @Search.defaultSearchElement: true
       @ObjectModel.text.element: [ 'TrStatusDesc' ]
+      @Consumption.filter.defaultValue: 'D'
       Transport.trstatus    as TrStatus,
       _TrStatus.TrStatusText as TrStatusDesc,
       Transport.tarsystem   as Tarsystem,
-      @Search.defaultSearchElement: true
       Transport.as4user     as As4user,
       Transport.as4date     as As4date,
       Transport.as4time     as As4time,
